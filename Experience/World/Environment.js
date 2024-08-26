@@ -9,7 +9,10 @@ export default class Environment {
     this.scene = this.experience.scene
     this.resources = this.experience.resources
     this.debug = this.experience.debug
-
+    const directionalLight = new THREE.DirectionalLight(0xffffff, 1); // (color, intensity)
+    directionalLight.position.set(5, 10, 7.5); // Set the position of the light
+    directionalLight.castShadow = true; // Enable shadows if needed
+    this.scene.add(directionalLight);
     // Debug
     if(this.debug.active) {
       this.debugFolder = this.debug.ui.addFolder('environment')
